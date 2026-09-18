@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg" />
+    <!-- No maximum-scale / user-scalable=no: pinch zoom stays available. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#04724d" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0b1210" media="(prefers-color-scheme: dark)" />
+    <!-- Apply a chosen theme before first paint, so a dark-mode reader never gets a
+         white flash. Mirrors src/lib/theme.js. -->
+    <script>
+      try { var t = localStorage.getItem('footing:theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t } catch (e) {}
+    </script>
+    <meta name="description" content="Understand your retirement accounts and what to do next, in plain English." />
+    <title>Footing — your money, in order</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

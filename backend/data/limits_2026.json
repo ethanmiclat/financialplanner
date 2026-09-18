@@ -1,0 +1,253 @@
+{
+  "year": 2026,
+  "source": "IRS Notice 2025-67 / Rev. Proc. 2025-19",
+  "401k": {
+    "employee_deferral": 24500,
+    "catch_up_tiers": [
+      {
+        "min_age": 50,
+        "max_age": 59,
+        "amount": 8000
+      },
+      {
+        "min_age": 60,
+        "max_age": 63,
+        "amount": 11250
+      },
+      {
+        "min_age": 64,
+        "max_age": null,
+        "amount": 8000
+      }
+    ],
+    "mandatory_roth_catchup_prior_year_wage_threshold": 150000
+  },
+  "ira": {
+    "combined_limit": 7500,
+    "catch_up_tiers": [
+      {
+        "min_age": 50,
+        "max_age": null,
+        "amount": 1100
+      }
+    ],
+    "roth_magi_phaseout": {
+      "single": {
+        "start": 153000,
+        "end": 168000
+      },
+      "head_of_household": {
+        "start": 153000,
+        "end": 168000
+      },
+      "married_filing_jointly": {
+        "start": 242000,
+        "end": 252000
+      },
+      "married_filing_separately": {
+        "start": 0,
+        "end": 10000
+      }
+    }
+  },
+  "hsa": {
+    "self_only": 4400,
+    "family": 8750,
+    "catch_up_tiers": [
+      {
+        "min_age": 55,
+        "max_age": null,
+        "amount": 1000
+      }
+    ]
+  },
+  "thresholds": {
+    "high_interest_debt_apr": 0.075,
+    "emergency_fund_months_floor": 3,
+    "emergency_fund_months_target": 6
+  },
+  "ages": {
+    "_source": "IRC \u00a772(t) and \u00a7401(a)(9) as amended by SECURE 2.0; SSA benefit reduction and delayed retirement credit rules",
+    "penalty_free_withdrawal": 59.5,
+    "rule_of_55": 55,
+    "medicare": 65,
+    "social_security": {
+      "earliest": 62,
+      "full": 67,
+      "latest": 70,
+      "delay_credit_per_year": 0.08
+    },
+    "rmd": [
+      {
+        "born_from": 0,
+        "born_to": 1950,
+        "age": 72
+      },
+      {
+        "born_from": 1951,
+        "born_to": 1959,
+        "age": 73
+      },
+      {
+        "born_from": 1960,
+        "born_to": null,
+        "age": 75
+      }
+    ]
+  },
+  "federal_tax": {
+    "source": "IRS Rev. Proc. 2025-32 (2026 inflation adjustments, reflecting P.L. 119-21). Social Security thresholds are statutory (IRC \u00a786) and not indexed.",
+    "standard_deduction": {
+      "single": 16100,
+      "married_filing_jointly": 32200,
+      "married_filing_separately": 16100,
+      "head_of_household": 24150
+    },
+    "additional_deduction_65_plus": {
+      "single": 2050,
+      "head_of_household": 2050,
+      "married_filing_jointly": 1650,
+      "married_filing_separately": 1650
+    },
+    "brackets": {
+      "single": [
+        [
+          12400,
+          0.1
+        ],
+        [
+          50400,
+          0.12
+        ],
+        [
+          105700,
+          0.22
+        ],
+        [
+          201775,
+          0.24
+        ],
+        [
+          256225,
+          0.32
+        ],
+        [
+          640600,
+          0.35
+        ],
+        [
+          null,
+          0.37
+        ]
+      ],
+      "married_filing_jointly": [
+        [
+          24800,
+          0.1
+        ],
+        [
+          100800,
+          0.12
+        ],
+        [
+          211400,
+          0.22
+        ],
+        [
+          403550,
+          0.24
+        ],
+        [
+          512450,
+          0.32
+        ],
+        [
+          768700,
+          0.35
+        ],
+        [
+          null,
+          0.37
+        ]
+      ],
+      "married_filing_separately": [
+        [
+          12400,
+          0.1
+        ],
+        [
+          50400,
+          0.12
+        ],
+        [
+          105700,
+          0.22
+        ],
+        [
+          201775,
+          0.24
+        ],
+        [
+          256225,
+          0.32
+        ],
+        [
+          384350,
+          0.35
+        ],
+        [
+          null,
+          0.37
+        ]
+      ],
+      "head_of_household": [
+        [
+          17700,
+          0.1
+        ],
+        [
+          67450,
+          0.12
+        ],
+        [
+          105700,
+          0.22
+        ],
+        [
+          201750,
+          0.24
+        ],
+        [
+          256200,
+          0.32
+        ],
+        [
+          640600,
+          0.35
+        ],
+        [
+          null,
+          0.37
+        ]
+      ]
+    },
+    "social_security_taxation": {
+      "single": [
+        25000,
+        34000
+      ],
+      "head_of_household": [
+        25000,
+        34000
+      ],
+      "married_filing_jointly": [
+        32000,
+        44000
+      ],
+      "married_filing_separately": [
+        0,
+        0
+      ]
+    }
+  }
+}

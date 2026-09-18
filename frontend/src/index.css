@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+/* Design tokens — white + green.
+   Every pair below was measured, not eyeballed: body text ≥4.5:1, large text and
+   meaningful UI boundaries ≥3:1. Greens are split by job — `brand` is dark enough
+   to use for text and small icons (5.97:1 on white), `brand-bright` is only ever a
+   fill behind white text or a progress bar (3.76:1, large-only). */
+@theme {
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+
+  --color-canvas: #f6f9f7;
+  --color-surface: #ffffff;
+  --color-surface-sunken: #f1f6f2;
+
+  --color-ink: #0f1c17;           /* 17.5:1 on white */
+  --color-ink-soft: #4a5b53;      /*  7.2:1 */
+  --color-ink-faint: #5b6d64;     /*  5.5:1 on white, 4.8:1 on brand-soft — solved
+                                     against the *darkest* background it lands on, not just
+                                     white, or small labels fail in place (the pale-green
+                                     selected tile was that background: 4.3:1 at #62746b). */
+
+  --color-brand: #04724d;         /*  6.0:1 — safe for text and icons */
+  --color-brand-bright: #0d9668;  /*  3.8:1 — fills and bars only, never small text */
+  --color-brand-soft: #e3f3ec;
+  --color-brand-border: #789c8b;  /*  3.0:1 — selected states */
+
+  --color-line: #dfe8e3;          /* decorative dividers only */
+  --color-line-strong: #899890;   /*  3.0:1 — input borders, real boundaries */
+
+  --color-alert: #a1341f;         /*  6.9:1 — "do this first" */
+  --color-alert-soft: #fdeee9;
+  --color-alert-border: #e0a894;
+
+  /* Roles that flip in dark mode rather than just lightening. */
+  --color-on-brand: #ffffff;      /* text on a brand fill — 6.0:1 */
+  --color-brand-hover: #035a3d;
+  --color-brand-soft-hover: #d3ebe0;
+  --color-toast: #0f1c17;         /* the dark pill: inverts with the theme */
+  --color-on-toast: #ffffff;
+  --color-toast-ok: #7fe0b8;
+  --color-toast-alert: #f5b4a3;
+
+  --radius-card: 1rem;
+}
+
+/* Dark mode — the same roles, re-solved for a dark ground and measured the same way
+   (every text pair ≥4.5:1, boundaries ≥3:1). Greens get lighter, not just inverted:
+   `brand` becomes a mint that reads as text on near-black, and text on a brand fill
+   turns dark. Follows the system unless the user picks a side ([data-theme]). */
+@layer base {
+  :root { color-scheme: light; }
+  :root[data-theme="dark"] { color-scheme: dark; }
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --color-canvas: #0b1210;
+    --color-surface: #121c18;
+    --color-surface-sunken: #0e1714;
+    --color-ink: #e8f0ec;           /* 15.0:1 on surface */
+    --color-ink-soft: #b4c3bb;      /*  9.5:1 */
+    --color-ink-faint: #91a39a;     /*  6.6:1 */
+    --color-brand: #5fd1a0;         /*  9.2:1 */
+    --color-brand-bright: #2fae7a;
+    --color-brand-soft: #143528;
+    --color-brand-border: #4f8f73;  /*  4.6:1 */
+    --color-line: #24332d;
+    --color-line-strong: #62776d;   /*  3.6:1 */
+    --color-alert: #ff9f8a;         /*  8.8:1 */
+    --color-alert-soft: #35170f;
+    --color-alert-border: #8a4535;
+    --color-on-brand: #04130d;      /* 10.1:1 on brand */
+    --color-brand-hover: #86e0b9;
+    --color-brand-soft-hover: #1b4535;
+    --color-toast: #e8f0ec;
+    --color-on-toast: #0f1c17;
+    --color-toast-ok: #04724d;
+    --color-toast-alert: #a1341f;
+  }
+}
+:root[data-theme="dark"] {
+  --color-canvas: #0b1210;
+  --color-surface: #121c18;
+  --color-surface-sunken: #0e1714;
+  --color-ink: #e8f0ec;
+  --color-ink-soft: #b4c3bb;
+  --color-ink-faint: #91a39a;
+  --color-brand: #5fd1a0;
+  --color-brand-bright: #2fae7a;
+  --color-brand-soft: #143528;
+  --color-brand-border: #4f8f73;
+  --color-line: #24332d;
+  --color-line-strong: #62776d;
+  --color-alert: #ff9f8a;
+  --color-alert-soft: #35170f;
+  --color-alert-border: #8a4535;
+  --color-on-brand: #04130d;
+  --color-brand-hover: #86e0b9;
+  --color-brand-soft-hover: #1b4535;
+  --color-toast: #e8f0ec;
+  --color-on-toast: #0f1c17;
+  --color-toast-ok: #04724d;
+  --color-toast-alert: #a1341f;
+}
+
+@layer base {
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    /* Keeps text readable at the top of the scale without truncating layouts. */
+    line-height: 1.6;
+  }
+
+  /* One visible focus treatment everywhere. Never removed. */
+  :focus-visible {
+    outline: 3px solid var(--color-brand);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+
+  /* Prices and limits sit in columns; tabular figures stop them jittering. */
+  .tabular { font-variant-numeric: tabular-nums; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

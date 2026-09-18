@@ -1,0 +1,8 @@
+# Render blueprint: New → Blueprint → point it at this repo. Free plan is enough;
+# it sleeps when idle, so the first visit after a while takes ~30s to wake.
+services:
+  - type: web
+    name: footing
+    runtime: docker
+    plan: free
+    healthCheckPath: /api/health
