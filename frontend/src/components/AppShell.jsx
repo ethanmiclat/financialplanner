@@ -121,7 +121,7 @@ export default function AppShell({ children }) {
           <span className="grid size-9 place-items-center rounded-xl bg-brand text-on-brand">
             <Icon name="target" className="size-5" />
           </span>
-          <span className="text-lg font-bold tracking-tight text-ink">Footing</span>
+          <span className="text-lg font-bold tracking-tight text-ink">Financial Planner</span>
         </div>
         {/* Keeping the numbers current is the most frequent thing anyone does here,
             so it's a button on every page rather than a form on one of them. */}
@@ -146,7 +146,7 @@ export default function AppShell({ children }) {
           <span className="grid size-8 place-items-center rounded-lg bg-brand text-on-brand">
             <Icon name="target" className="size-4" />
           </span>
-          <span className="font-bold tracking-tight text-ink">Footing</span>
+          <span className="font-bold tracking-tight text-ink">Financial Planner</span>
           <ThemeButton />
         </header>
 
